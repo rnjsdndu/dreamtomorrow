@@ -1,0 +1,173 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  color: initial;
+  box-sizing: border-box;
+}
+
+.cart {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+table {
+  border-collapse: collapse;
+  width: 1000px;
+  /* border: 1px solid #f3f3f3; */
+
+  &>tr>th,
+  td {
+    border-bottom: 1px solid #cfcfcf;
+  }
+
+  &>thead>tr {
+    background-color: #ffd61f;
+    border: 1px solid #ffef0c;
+
+    &>th {
+      padding: 15px;
+      font-weight: 500;
+    }
+  }
+
+  &>tbody>tr>td {
+    text-align: center;
+    height: 120px;
+  }
+}
+
+section {
+  padding-bottom: 100px;
+  padding-top: 50px;
+}
+
+.table_con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_num {
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  width: 55px;
+  height: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.num_A {
+  display: flex;
+  justify-content: center;
+}
+
+.num {
+  border-right: 1px solid #a3a3a3;
+  border-left: 1px solid #a3a3a3;
+  width: fit-content;
+  padding: 0px 6px;
+  cursor: auto;
+  display: flex;
+  align-items: center;
+}
+
+.item_img {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-left: 10px;
+}
+
+.item_img>img {
+  width: 100px;
+  height: 100px;
+}
+
+.re_button {
+  position: relative;
+}
+
+.remove {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.but_w {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.C_order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+}
+
+.all_buy_but{
+  display: flex;
+  width: 970px;
+  justify-content: start;
+  gap: 7px;
+  padding: 10px;
+  font-size: 17px;
+
+  & > label {
+    cursor: pointer;
+  }
+}
+
+input{
+  cursor: pointer;
+}
+
+.order_box {
+  width: 1000px;
+  height: 100px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  box-shadow: 2px 2px 3px rgba(51, 51, 51, 0.068);
+}
+
+.all_pr {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.buy_but>button {
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: 0px;
+  background-color: #ffd61f;
+  border: 1px solid #ffef15;
+  transition: .3s;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: rgb(255, 245, 188);
+  }
+}
+
+.body_con{
+  position: relative;
+  padding-bottom: 900px;
+}
+
+.body_con > img{position: absolute; bottom: 0; left: 0; width: 100%; height: 300px;}
+

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/cart_css.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <div class="headerBox"></div>
+  <header>
+    <div class="container">
+      <a href="./index.html"><img src="./assets/images/logo.png" alt="logo" title="logo"></a>
+      <nav>
+        <ul>
+          <li>
+            <a href="./introduce.html">소개</a>
+            <ul class="sub">
+              <li><a href="#">-</a></li>
+              <li><a href="#">-</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">판매상품</a>
+            <ul class="sub">
+              <li><a href="./all.html">전체상품</a></li>
+              <li><a href="./hot.html">인기상품</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">가맹점</a>
+            <ul class="sub">
+              <li><a href="#">-</a></li>
+              <li><a href="#">-</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="./cart.html">장바구니</a>
+            <ul class="sub">
+              <li><a href="#">-</a></li>
+              <li><a href="#">-</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="util">
+        <a href="#">로그인</a>
+        <a href="#">회원가입</a>
+        <a href="#">장바구니</a>
+        <a href="#">관리자</a>
+      </div>
+    </div>
+  </header>
+  <div class="body_con">
+    <!-- <div class="cart">장바구니</div> -->
+
+    <section class="cart">
+      <div class="table_con">
+        <table>
+          <thead>
+            <tr>
+              <th>상품명</th>
+              <th>가격</th>
+              <th>수량</th>
+              <th>합계</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+                <div class="item_img"><input type="checkbox"><img src="./선수제공파일/A-Module/images/건강식품/3.PNG" alt="">
+                  <p>닥터브라이언</p>
+                </div>
+              </td>
+              <td class="price">2,000원</td>
+              <td>
+                <div class="num_A">
+                  <div class="item_num">
+                    -<div class="num">3</div>+
+                  </div>
+                </div>
+              </td>
+              <td class="re_button">
+                <div class="but_w">6,000원 <button class="remove">⨉</button></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item_img"><input type="checkbox"><img src="./선수제공파일/A-Module/images/디지털/2.PNG" alt="">
+                  <p>Bowie D05 무선 블루투스 5.3 헤드셋</p>
+                </div>
+              </td>
+              <td class="price">36,000원</td>
+              <td>
+                <div class="num_A">
+                  <div class="item_num">
+                    -<div class="num">1</div>+
+                  </div>
+                </div>
+              </td>
+              <td class="re_button">
+                <div class="but_w"> 36,000원 <button class="remove">⨉</button></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item_img"><input type="checkbox"><img src="./선수제공파일/A-Module/images/향수/1.PNG" alt="">
+                  <p>에스쁘아 솔리드 퍼퓸 4.2g</p>
+                </div>
+              </td>
+              <td class="price">26,000원</td>
+              <td>
+                <div class="num_A">
+                  <div class="item_num">
+                    -<div class="num">1</div>+
+                  </div>
+                </div>
+              </td>
+              <td class="re_button">
+                <div class="but_w"> 26,000원 <button class="remove">⨉</button></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item_img"><input type="checkbox"><img src="./선수제공파일/A-Module/images/헤어케어/4.PNG" alt="">
+                  <p>모로칸오일 헤어트리트먼트 100ml</p>
+                </div>
+              </td>
+              <td class="price">52,200원</td>
+              <td>
+                <div class="num_A">
+                  <div class="item_num">
+                    -<div class="num">1</div>+
+                  </div>
+                </div>
+              </td>
+              <td class="re_button">
+                <div class="but_w"> 52,200원 <button class="remove">⨉</button></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="C_order">
+        <div class="all_buy_but"><input type="checkbox" id="all_buy"><label for="all_buy">전체</label></div>
+        <div class="order_box">
+          <div class="all_pr">총 가격: 0원</div>
+
+          <div class="buy_but">
+            <button>구매하기</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <img src="./assets/images/backFill.png" alt="back" title="back">
+
+  </div>
+  <footer>
+    <div class="flex">
+      <div>
+        <p>고객센터 이용안내</p>
+        <p>- 온라인몰 고객센터 1580-8282</p>
+        <p>- 매장고객센터 1577-8254</p>
+      </div>
+      <div>
+        <p>고객센터 운영시간 [평일 09:00 - 18:00]</p>
+        <p>주말 및 공휴일은 1:1문의하기를 이용해주세요.</p>
+        <p>업무가 시작되면 바로 처리해드립니다.</p>
+      </div>
+    </div>
+    <div class="footerFlex">
+      <p>개인정보처리방침</p>|
+      <p>이용약관.법적고지</p>|
+      <p>청소년보호방침</p>|
+      <p>이메일무단수집거부</p>|
+      <p>사이트맵</p>|
+      <p>채용</p>
+    </div>
+    <div class="flex">
+      <div>
+        <p>(주)GIFTS:Mall | 사업자등록번호 : 809-81-01157 | 대표이사 황기영</p>
+        <p>주소 : 서울특별시 용산구 한강대로 123, 40층</p>
+      </div>
+      <div>
+        <p>본사 대표전화 : 02-123-4567 | GIFTS:Mall 가맹상담전화 : 02-123-4568</p>
+        <p>COPYRIGHTⓒ 2024 GIFTS:MALL KOREA INC. ALL RIGHTS RESERVED</p>
+      </div>
+    </div>
+    <div class="flex">
+      <div>
+        <p>지방은행구매안전서비스</p>
+        <p>GIFTS:Mall은 현금 결제한 금액에 대해 지방은행과 채무지급보증 계약을체결하여 안전한 거래를 보장하고 있습니다</p>
+        <p>서비스 가입사실 확인 ></p>
+      </div>
+      <div class="sns">
+        <p class="fa fa-facebook"></p>
+        <p class="fa fa-youtube"></p>
+        <p class="fa fa-twitter"></p>
+        <p class="fa fa-github"></p>
+        <p class="fa fa-spotify"></p>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="./script/cart_js.js"></script>
+
+</html>

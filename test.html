@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="ddd">
+    <input type="text" name="z">
+    <input type="text" name="z">
+    <input type="text" name="z">
+    <input type="text" name="z">
+    <input type="submit" value="dsadsa" />
+  </form>
+  <script>
+    const $form = document.forms.ddd;
+
+    $form.addEventListener('submit',function(e){
+      e.preventDefault()
+      try{
+        if($form.mcode.value.trim() === "") throw "지점코드가 입력되지 않았습니다."
+        if($form.sale_date.value.trim() === "") throw "판매일자가 입력되지 않았습니다."
+        if($form.pcode.value.trim() === "") throw "피자코드가 입력되지 않았습니다."
+        if($form.amount.value.trim() === "") throw "판매수량이 입력되지 않았습니다."
+
+        $form.submit()
+      }catch(message){
+        alert(message)
+      }
+    })
+    console.log(mcode , sale_date , pcode , amount )
+  </script>
+</body>
+</html>
