@@ -1,3 +1,6 @@
+const $ = e => document.querySelector(e)
+const $$ = e => [...document.querySelectorAll(e)]
+
 function motto() {
   const mottos = [...document.querySelectorAll(".motto ul li")];
   const dess = [...document.querySelectorAll(".dess div")];
@@ -220,6 +223,90 @@ modalClose.addEventListener('click' , (e)=>{
 
 
 
+const helthCon = $('.helth')
+const digitalCon = $('.digital')
+const fancyCon = $('.fancy')
+const perfumCon = $('.perfum')
+const hairCon = $('.hair')
+
+const helth = (e) =>{
+  helthCon.style.display = 'block'
+  digitalCon.style.display = 'none'
+  fancyCon.style.display = 'none'
+  perfumCon.style.display = 'none'
+  hairCon.style.display = 'none'
+
+  document.querySelectorAll('.menu p').forEach(p => {
+    p.style.fontWeight = 'normal'
+    p.style.color = 'rgb(139, 139, 139)'
+  })
+
+  e.style.fontWeight = 'bold'
+}
+
+const digital = (e) =>{
+  helthCon.style.display = 'none'
+  digitalCon.style.display = 'block'
+  fancyCon.style.display = 'none'
+  perfumCon.style.display = 'none'
+  hairCon.style.display = 'none'
+
+    document.querySelectorAll('.menu p').forEach(p => {
+    p.style.fontWeight = 'normal'
+    p.style.color = 'rgb(139, 139, 139)'
+  })
+
+  e.style.fontWeight = 'bold'
+  
+}
+
+const fancy = (e) =>{
+  helthCon.style.display = 'none'
+  digitalCon.style.display = 'none'
+  fancyCon.style.display = 'block'
+  perfumCon.style.display = 'none'
+  hairCon.style.display = 'none'
+
+    document.querySelectorAll('.menu p').forEach(p => {
+    p.style.fontWeight = 'normal'
+    p.style.color = 'rgb(139, 139, 139)'
+  })
+
+  e.style.fontWeight = 'bold'
+  
+}
+
+const perfum = (e) =>{
+  helthCon.style.display = 'none'
+  digitalCon.style.display = 'none'
+  fancyCon.style.display = 'none'
+  perfumCon.style.display = 'block'
+  hairCon.style.display = 'none'
+
+    document.querySelectorAll('.menu p').forEach(p => {
+    p.style.fontWeight = 'normal'
+    p.style.color = 'rgb(139, 139, 139)'
+  })
+
+  e.style.fontWeight = 'bold'
+  
+}
+
+const hair = (e) =>{
+  helthCon.style.display = 'none'
+  digitalCon.style.display = 'none'
+  fancyCon.style.display = 'none'
+  perfumCon.style.display = 'none'
+  hairCon.style.display = 'block'
+
+    document.querySelectorAll('.menu p').forEach(p => {
+    p.style.fontWeight = 'normal'
+    p.style.color = 'rgb(139, 139, 139)'
+  })
+
+  e.style.fontWeight = 'bold'
+  
+}
 
 
 dnd();

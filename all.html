@@ -17,36 +17,10 @@
 
         <a href="./index.html"><img src="./assets/images/logo.png" alt="logo" title="logo"></a>
         <nav>
-          <ul>
-            <li>
-              <a href="./introduce.html">소개</a>
-              <ul class="sub">
-                <li><a href="#">-</a></li>
-                <li><a href="#">-</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">판매상품</a>
-              <ul class="sub">
-                <li><a href="./all.html">전체상품</a></li>
-                <li><a href="./hot.html">인기상품</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">가맹점</a>
-              <ul class="sub">
-                <li><a href="#">-</a></li>
-                <li><a href="#">-</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="./cart.html">장바구니</a>
-              <ul class="sub">
-                <li><a href="#">-</a></li>
-                <li><a href="#">-</a></li>
-              </ul>
-            </li>
-          </ul>
+          <a href="introduce.html">소개</a>
+          <a href="all.html">전체상품</a>
+          <a href="hot.html">인기상품</a>
+          <a href="cart.html">장바구니</a>
         </nav>
         <div class="util">
           <a href="#">로그인</a>
@@ -59,20 +33,42 @@
     <main class="all">
       <div class="container">
         <div class="video">
-          <video src = "./선수제공파일/B-Module/AD.mp4"></video>
+          <video src="./선수제공파일/B-Module/AD.mp4"></video>
           <div class="controlor">
             <ul class="other">
-              <li id="play"><p class="fa fa-play"></p>재생</li>
-              <li id="pause"><p class="fa fa-pause"></p>일시정지</li> 
-              <li id="stop"><p class="fa fa-stop"></p>정지</li> 
-              <li id="back"><p class="fa fa-fast-backward"></p>되감기</li> 
-              <li id="fast"><p class="fa fa-fast-forward"></p>빨리감기</li> 
-              <li id="speedDown"><p class="fa fa-backward"></p>감속하기</li> 
-              <li id="speedUp"><p class="fa fa-forward"></p>배속하기</li> 
-              <li id="reset"><p class="fa fa-history"></p>1배속(1x)</li> 
-              <li id="re"><label for="repeat"><p class="fa fa-repeat"></p>반복</label><input type="checkbox" name="repeat" id="repeat"></li> 
-              <li id="auto"><label for="auto"><p class="fa fa-play-circle"></p>자동재생</label><input type="checkbox" name="auto" id="auto"></li>
-              <li><label id="hidden" for="hide"><p class="fa fa-cogs"></p>컨트롤러</label><input type="checkbox" name="hide" id="hide"></li>
+              <li id="play">
+                <p class="fa fa-play"></p>재생
+              </li>
+              <li id="pause">
+                <p class="fa fa-pause"></p>일시정지
+              </li>
+              <li id="stop">
+                <p class="fa fa-stop"></p>정지
+              </li>
+              <li id="back">
+                <p class="fa fa-fast-backward"></p>되감기
+              </li>
+              <li id="fast">
+                <p class="fa fa-fast-forward"></p>빨리감기
+              </li>
+              <li id="speedDown">
+                <p class="fa fa-backward"></p>감속하기
+              </li>
+              <li id="speedUp">
+                <p class="fa fa-forward"></p>배속하기
+              </li>
+              <li id="reset">
+                <p class="fa fa-history"></p>1배속(1x)
+              </li>
+              <li id="re"><label for="repeat">
+                  <p class="fa fa-repeat"></p>반복
+                </label><input type="checkbox" name="repeat" id="repeat"></li>
+              <li id="auto"><label for="auto">
+                  <p class="fa fa-play-circle"></p>자동재생
+                </label><input type="checkbox" name="auto" id="auto"></li>
+              <li><label id="hidden" for="hide">
+                  <p class="fa fa-cogs"></p>컨트롤러
+                </label><input type="checkbox" name="hide" id="hide"></li>
             </ul>
           </div>
         </div>
@@ -290,7 +286,7 @@
       </div>
       <img src="./assets/images/backFill.png" alt="back" title="back">
     </main>
-<footer>
+    <footer>
 
       <div class="flex">
         <div>
@@ -338,172 +334,249 @@
       </div>
   </div>
   <div class="modal">
-
     <dialog>
       <div class="m_header">
-        <p class="randomId">R1R1R1</p>
+        <div class="flex">
+          <p onclick="helth()">건강식품</p>
+          <p onclick="digital()">디지털</p>
+          <p onclick="fancy()">팬시</p>
+          <p onclick="perfum()">향수</p>
+          <p onclick="hair()">헤어케어</p>
+        </div>
+        <div class="flex">
+          <p>비회원ID:</p>
+          <p class="randomId"></p>
+        </div>
         <span class="modalClose">X</span>
       </div>
       <div class="m_body">
         <div class="display">
-          <div class="item">
-            <h2>건강식품</h2>
-            <div class="C_card" id="card1">
-              <img src="./선수제공파일/A-Module/images/건강식품/1.PNG" alt="건강식품 이미지" title="건강식품">
-              <h3 class="itemTitle">이뮨 멀티비타민&미네랄</h3>
-                <p class="discount">75,000</p>
-                <p class="price">65,000원</p>
+          <div class="C_item">
+            <div class="helth">
+              <h2>건강식품</h2>
+              <div class="flex">
+                <div class="C_card" id="card1">
+                  <img src="./선수제공파일/A-Module/images/건강식품/1.PNG" alt="건강식품 이미지" title="건강식품">
+                  <div class="box">
+                    <h3 class="itemTitle">이뮨 멀티비타민&미네랄</h3>
+                    <div class="C_priceBox">
+                      <p class="discount">75,000</p>
+                      <p class="price">65,000원</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="C_card" id="card2">
+                  <img src="./선수제공파일/A-Module/images/건강식품/2.PNG" alt="건강식품 이미지" title="건강식품">
+                  <div class="box">
+                    <h3 class="itemTitle">센트룸</h3>
+                    <p class="price">27,000원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card3">
+                  <img src="./선수제공파일/A-Module/images/건강식품/3.PNG" alt="건강식품 이미지" title="건강식품">
+                  <div class="box">
+                    <h3 class="itemTitle">닥터브라이언</h3>
+                    <p class="price">2,000원</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="C_card" id="card4">
+                  <img src="./선수제공파일/A-Module/images/건강식품/4.PNG" alt="건강식품 이미지" title="건강식품">
+                  <div class="box">
+                    <h3 class="itemTitle">액티브 멀티포맨</h3>
+                    <p class="price">30,000원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card5">
+                  <img src="./선수제공파일/A-Module/images/건강식품/5.PNG" alt="건강식품 이미지" title="건강식품">
+                  <div class="box">
+                    <h3 class="itemTitle">네이처메이드B12</h3>
+                    <p class="price">30,000원</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="C_card" id="card2">
-              <img src="./선수제공파일/A-Module/images/건강식품/2.PNG" alt="건강식품 이미지" title="건강식품">
-              <h3 class="itemTitle">센트룸</h3>
-                <p class="price">27,000원</p>
+            <div class="digital">
+              <h2>디지털</h2>
+              <div class="flex">
+                <div class="C_card" id="card6">
+                  <img src="./선수제공파일/A-Module/images/디지털/1.PNG" alt="디지털 이미지" title="디지털">
+                  <div class="box">
+                    <h3 class="itemTitle">PANTONE PD충전 보조배터리</h3>
+                    <p class="price">24,400</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card7">
+                  <img src="./선수제공파일/A-Module/images/디지털/2.PNG" alt="디지털 이미지" title="디지털">
+                  <div class="box">
+                    <h3 class="itemTitle">Bowie D05 무선 블루투스 5.3 헤드셋 </h3>
+                    <p class="price">36,900원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card8">
+                  <img src="./선수제공파일/A-Module/images/디지털/3.PNG" alt="디지털 이미지" title="디지털">
+                  <div class="box">
+                    <h3 class="itemTitle">독거미 F99 기계식 키보드</h3>
+                    <p class="price">70,750원</p>
+                  </div>
+                </div>
               </div>
-            <div class="C_card" id="card3">
-              <img src="./선수제공파일/A-Module/images/건강식품/3.PNG" alt="건강식품 이미지" title="건강식품">
-              <h3 class="itemTitle">닥터브라이언</h3>
-              
-                <p class="price">2,000원</p>
+              <div class="flex">
+                <div class="C_card" id="card9">
+                  <img src="./선수제공파일/A-Module/images/디지털/4.jpg" alt="디지털 이미지" title="디지털">
+                  <div class="box">
+                    <h3 class="itemTitle">파이널마우스 스타라이트12 페가수스 미디엄</h3>
+                    <div class="C_priceBox">
+                      <p class="discount">1,254,600원</p>
+                    </div>
+                    </div>
+                  <p class="price">1,128,000</p>
+                </div>
+                <div class="C_card" id="card10">
+                  <img src="./선수제공파일/A-Module/images/디지털/5.PNG" alt="디지털 이미지" title="디지털">
+                  <div class="box">
+                    <h3 class="itemTitle">보이저5200 블루투스 이어폰</h3>
+
+                    <p class="price">146,000원</p>
+                  </div>
+                </div>
               </div>
-            <div class="C_card" id="card4">
-              <img src="./선수제공파일/A-Module/images/건강식품/4.PNG" alt="건강식품 이미지" title="건강식품">
-              <h3 class="itemTitle">액티브 멀티포맨</h3>
-              
-                <p class="price">30,000원</p>
-              </div>
-            <div class="C_card" id="card5">
-              <img src="./선수제공파일/A-Module/images/건강식품/5.PNG" alt="건강식품 이미지" title="건강식품">
-              <h3 class="itemTitle">네이처메이드B12</h3>
-              
-                <p class="price">30,000원</p>
-              </div>
-            <h2>디지털</h2>
-            <div class="C_card" id="card6">
-              <img src="./선수제공파일/A-Module/images/디지털/1.PNG" alt="디지털 이미지" title="디지털">
-              <h3 class="itemTitle">PANTONE PD충전 보조배터리</h3>
-              
-                <p class="price">24,400</p>
-              </div>
-            <div class="C_card" id="card7">
-              <img src="./선수제공파일/A-Module/images/디지털/2.PNG" alt="디지털 이미지" title="디지털">
-              <h3 class="itemTitle">Bowie D05 무선 블루투스 5.3 헤드셋 </h3>
-              
-                <p class="price">36,900원</p>
-              </div>
-            <div class="C_card" id="card8">
-              <img src="./선수제공파일/A-Module/images/디지털/3.PNG" alt="디지털 이미지" title="디지털">
-              <h3 class="itemTitle">독거미 F99 기계식 키보드</h3>
-              
-                <p class="price">70,750원</p>
-              </div>
-            <div class="C_card" id="card9">
-              <img src="./선수제공파일/A-Module/images/디지털/4.jpg" alt="디지털 이미지" title="디지털">
-              <h3 class="itemTitle">파이널마우스 스타라이트12 페가수스 미디엄</h3>
-              
-                <p class="discount">1,254,600원</p>
-                <p class="price">1,128,000</p>
             </div>
-            <div class="C_card" id="card10">
-              <img src="./선수제공파일/A-Module/images/디지털/5.PNG" alt="디지털 이미지" title="디지털">
-              <h3 class="itemTitle">보이저5200 블루투스 이어폰</h3>
-              
-                <p class="price">146,000원</p>
+            <div class="fancy">
+              <h2>팬시</h2>
+              <div class="flex">
+                <div class="C_card" id="card11">
+                  <img src="./선수제공파일/A-Module/images/팬시/1.PNG" alt="팬시 이미지" title="팬시">
+                  <div class="box">
+                    <h3 class="itemTitle">명품 자동 장우산</h3>
+                    <p class="price">31,600원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card12">
+                  <img src="./선수제공파일/A-Module/images/팬시/2.PNG" alt="팬시 이미지" title="팬시">
+                  <div class="box">
+                    <h3 class="itemTitle">14K 윙블링 원터치 링 귀걸이(주문제작)</h3>
+                    <p class="price">250,000원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card13">
+                  <img src="./선수제공파일/A-Module/images/팬시/3.PNG" alt="팬시 이미지" title="팬시">
+                  <div class="box">
+                    <h3 class="itemTitle">14K 윙블링 메르시 목걸이(주문제작)</h3>
+                    <p class="price">265,000원</p>
+                  </div>
+                </div>
               </div>
-            <h2>팬시</h2>
-            <div class="C_card" id="card11">
-              <img src="./선수제공파일/A-Module/images/팬시/1.PNG" alt="팬시 이미지" title="팬시">
-              <h3 class="itemTitle">명품 자동 장우산</h3>
-              
-                <p class="price">31,600원</p>
+              <div class="flex">
+                <div class="C_card" id="card14">
+                  <img src="./선수제공파일/A-Module/images/팬시/4.PNG" alt="팬시 이미지" title="팬시">
+                  <div class="box">
+                    <h3 class="itemTitle">게이밍 이어폰 VJJB NI</h3>
+                    <div class="C_priceBox">
+                      <p class="discount">38,900</p>
+                      <p class="price">28,900원</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="C_card" id="card15">
+                  <img src="./선수제공파일/A-Module/images/팬시/5.PNG" alt="팬시 이미지" title="팬시">
+                  <div class="box">
+                    <h3 class="itemTitle">인스탁스 미니 에보</h3>
+                    <p class="price">320,000원</p>
+                  </div>
+                </div>
               </div>
-            <div class="C_card" id="card12">
-              <img src="./선수제공파일/A-Module/images/팬시/2.PNG" alt="팬시 이미지" title="팬시">
-              <h3 class="itemTitle">14K 윙블링 원터치 링 귀걸이(주문제작)</h3>
-              
-                <p class="price">250,000원</p>
-              </div>
-            <div class="C_card"  id="card13">
-              <img src="./선수제공파일/A-Module/images/팬시/3.PNG" alt="팬시 이미지" title="팬시">
-              <h3 class="itemTitle">14K 윙블링 메르시 목걸이(주문제작)</h3>
-              
-                <p class="price">265,000원</p>
-              </div>
-            <div class="C_card" id="card14">
-              <img src="./선수제공파일/A-Module/images/팬시/4.PNG" alt="팬시 이미지" title="팬시">
-              <h3 class="itemTitle">게이밍 이어폰 VJJB NI</h3>
-              
-                <p class="discount">38,900</p>
-                <p class="price">28,900원</p>
             </div>
-            <div class="C_card" id="card15">
-              <img src="./선수제공파일/A-Module/images/팬시/5.PNG" alt="팬시 이미지" title="팬시">
-              <h3 class="itemTitle">인스탁스 미니 에보</h3>
-              
-                <p class="price">320,000원</p>
+            <div class="perfum">
+              <h2>향수</h2>
+              <div class="flex">
+                <div class="C_card" id="card16">
+                  <img src="./선수제공파일/A-Module/images/향수/1.PNG" alt="향수 이미지" title="향수">
+                  <div class="box">
+                    <h3 class="itemTitle">에스쁘아 솔리드 퍼퓸 4.2g</h3>
+                    <p class="price">26,000원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card17">
+                  <img src="./선수제공파일/A-Module/images/향수/2.PNG" alt="향수 이미지" title="향수">
+                  <div class="box">
+                    <h3 class="itemTitle">호텔도슨 향수 오드퍼퓸 75ml</h3>
+                    <p class="price">153,000원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card18">
+                  <img src="./선수제공파일/A-Module/images/향수/3.PNG" alt="향수 이미지" title="향수">
+                  <div class="box">
+                    <h3 class="itemTitle">랑방 레 플레르 EDT 90ml</h3>
+                    <p class="price">64,500원</p>
+                  </div>
+                </div>
               </div>
-            <h2>향수</h2>
-            <div class="C_card" id="card16">
-              <img src="./선수제공파일/A-Module/images/향수/1.PNG" alt="향수 이미지" title="향수">
-              <h3 class="itemTitle">에스쁘아 솔리드 퍼퓸 4.2g</h3>
-              
-                <p class="price">26,000원</p>
+              <div class="flex">
+                <div class="C_card" id="card19">
+                  <img src="./선수제공파일/A-Module/images/향수/4.PNG" alt="향수 이미지" title="향수">
+                  <div class="box">
+                    <h3 class="itemTitle">몽블랑 익스플로러 EDP 60ml</h3>
+                    <div class="C_priceBox">
+                      <p class="discount">93,000원</p>
+                      <p class="price">103,000원</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="C_card" id="card20">
+                  <img src="./선수제공파일/A-Module/images/향수/5.PNG" alt="향수 이미지" title="향수">
+                  <div class="box">
+                    <h3 class="itemTitle">캘빈클라인 One EDT 50ml</h3>
+                    <p class="price">58,900원</p>
+                  </div>
+                </div>
               </div>
-            <div class="C_card" id="card17">
-              <img src="./선수제공파일/A-Module/images/향수/2.PNG" alt="향수 이미지" title="향수">
-              <h3 class="itemTitle">호텔도슨 향수 오드퍼퓸 75ml</h3>
-              
-                <p class="price">153,000원</p>
-              </div>
-            <div class="C_card" id="card18">
-              <img src="./선수제공파일/A-Module/images/향수/3.PNG" alt="향수 이미지" title="향수">
-              <h3 class="itemTitle">랑방 레 플레르 EDT 90ml</h3>
-              
-                <p class="price">64,500원</p>
-              </div>
-            <div class="C_card" id="card19">
-              <img src="./선수제공파일/A-Module/images/향수/4.PNG" alt="향수 이미지" title="향수">
-              <h3 class="itemTitle">몽블랑 익스플로러 EDP 60ml</h3>
-              
-                <p class="discount">93,000원</p>
-                <p class="price">103,000원</p>
             </div>
-            <div class="C_card" id="card20">
-              <img src="./선수제공파일/A-Module/images/향수/5.PNG" alt="향수 이미지" title="향수">
-              <h3 class="itemTitle">캘빈클라인 One EDT 50ml</h3>
-              
-                <p class="price">58,900원</p>
+            <div class="hair">
+              <h2>헤어케어</h2>
+              <div class="flex">
+                <div class="C_card" id="card21">
+                  <img src="./선수제공파일/A-Module/images/헤어케어/1.PNG" alt="헤어케어 이미지" title="헤어케어">
+                  <div class="box">
+                    <h3 class="itemTitle">어노브 딥 데미지 트리트먼트 EX 더블</h3>
+                    <p class="price">29,800원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card22">
+                  <img src="./선수제공파일/A-Module/images/헤어케어/2.PNG" alt="헤어케어 이미지" title="헤어케어">
+                  <div class="box">
+                    <h3 class="itemTitle">려 루트젠 여성맞춤 볼륨 탈모증상케어 샴퓨 353ml</h3>
+                    <p class="price">21,900원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card23">
+                  <img src="./선수제공파일/A-Module/images/헤어케어/3.PNG" alt="헤어케어 이미지" title="헤어케어">
+                  <div class="box">
+                    <h3 class="itemTitle">라보에이치 두피쿨링&노세범 샴푸 333ml</h3>
+                    <p class="price">19,800원</p>
+                  </div>
+                </div>
               </div>
-            <h2>헤어케어</h2>
-            <div class="C_card" id="card21">
-              <img src="./선수제공파일/A-Module/images/헤어케어/1.PNG" alt="헤어케어 이미지" title="헤어케어">
-              <h3 class="itemTitle">어노브 딥 데미지 트리트먼트 EX 더블</h3>
-              
-                <p class="price">29,800원</p>
+              <div class="flex">
+                <div class="C_card" id="card24">
+                  <img src="./선수제공파일/A-Module/images/헤어케어/4.PNG" alt="헤어케어 이미지" title="헤어케어">
+                  <div class="box">
+                    <h3 class="itemTitle">모로칸오일 헤어트리트먼트 100ml</h3>
+                    <p class="price">52,200원</p>
+                  </div>
+                </div>
+                <div class="C_card" id="card25">
+                  <img src="./선수제공파일/A-Module/images/헤어케어/5.PNG" alt="헤어케어 이미지" title="헤어케어">
+                  <div class="box">
+                    <h3 class="itemTitle">닥터포헤어 피토프레시 헤어쿨링 스프레이 150ml</h3>
+                    <div class="C_priceBox">
+                      <p class="discount">16,000</p>
+                      <p class="price">14,400원</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            <div class="C_card" id="card22">
-              <img src="./선수제공파일/A-Module/images/헤어케어/2.PNG" alt="헤어케어 이미지" title="헤어케어">
-              <h3 class="itemTitle">려 루트젠 여성맞춤 볼륨 탈모증상케어 샴퓨 353ml</h3>
-              
-                <p class="price">21,900원</p>
-              </div>
-            <div class="C_card" id="card23">
-              <img src="./선수제공파일/A-Module/images/헤어케어/3.PNG" alt="헤어케어 이미지" title="헤어케어">
-              <h3 class="itemTitle">라보에이치 두피쿨링&노세범 샴푸 333ml</h3>
-              
-                <p class="price">19,800원</p>
-              </div>
-            <div class="C_card" id="card24">
-              <img src="./선수제공파일/A-Module/images/헤어케어/4.PNG" alt="헤어케어 이미지" title="헤어케어">
-              <h3 class="itemTitle">모로칸오일 헤어트리트먼트 100ml</h3>
-              
-                <p class="price">52,200원</p>
-              </div>
-            <div class="C_card" id="card25">
-              <img src="./선수제공파일/A-Module/images/헤어케어/5.PNG" alt="헤어케어 이미지" title="헤어케어">
-              <h3 class="itemTitle">닥터포헤어 피토프레시 헤어쿨링 스프레이 150ml</h3>
-              
-                <p class="discount">16,000</p>
-                <p class="price">14,400원</p>
             </div>
           </div>
         </div>

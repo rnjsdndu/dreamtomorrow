@@ -10,19 +10,15 @@ h2{font-size:40px;text-align:center;position:relative;}
 
 /* ========== Header & Nav ========== */
 .headerBox{width:100%;height:100px;}
-header{width:100%;height:100px;position:fixed;top:0;background-color:white;z-index:300;}
-header .container{display:flex;justify-content:space-between;}
+header{box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.185); width:100%;height:100px;position:fixed;top:0;background-color:white;z-index:300;}
+header .container{display:flex;justify-content:space-between; align-items: end;}
 header img{height:100px;}
-nav,.util{margin-top:50px;}
-nav a{display:block;transition:.2s;}
-nav>ul{display:flex;}
-nav>ul>li{width:150px;height:50px;text-align:center;line-height:50px;font-size:18px;color:#0f0f0f;}
-nav>ul>li>a{font-weight:bold;}
-.sub{height:0;overflow:hidden;transition:.3s;background-color:white;}
-nav>ul:hover .sub{height:100px;}
-nav a:hover{background-color:#ffc30d;color:#000000;}
-nav>ul>li:hover>a{background-color:#ffd557;}
-nav>ul>li:hover>ul{background-color:#ffd557;}
+nav{display: flex; gap: 50px; font-size: 20px; margin-left: 120px;}
+nav a{display:block;transition:.2s; position: relative;}
+nav a:hover{font-weight: bold;}
+nav a::before{content: ''; transition: .2s; width: 0%; height: 2px; position: absolute; bottom: 0; left: 0; background-color: black;}
+nav a:hover::before{width: 100%;}
+nav, .util{margin-bottom: 10px;}
 .util{width:300px;height:40px;display:flex;justify-content:space-around;font-size:17px;font-weight:bold;}
 .util a{background-color:rgb(0,153,255);width:70px;line-height:40px;text-align:center;color:rgb(243,243,243);border-radius:10px;}
 .util a:hover{color:white;}
@@ -55,12 +51,15 @@ nav>ul>li:hover>ul{background-color:#ffd557;}
 
 /* ========== Notice 섹션 ========== */
 .notice{width:100%;background-color:#ffc500;position:relative;padding:40px;}
-.notice h2{color:rgb(82,82,82);}
-.notice>li{display:flex;justify-content:space-between;width:100%;padding:30px 0;font-weight:bold;font-size:20px;color:#000;}
-.notice h2::before{content:"";width:7px;height:80%;position:absolute;left:560px;top:8px;background-color:#ffffff;}
-.notice h2::after{content:"";width:7px;height:80%;position:absolute;left:750px;top:8px;background-color:#f0f0f0;}
-.notice i{font-size:500px;color:rgba(255,255,255,0.308);position:absolute;top:-150px;left:475px;z-index:1;pointer-events:none;}
-.page{color:white;font-size:50px;display:flex;gap:50px;justify-content:center;}
+.noticeCon h2{color:rgb(82,82,82);}
+.noticeCon>li{display:flex;justify-content:space-between;width:100%;padding:30px 0;font-weight:bold;font-size:20px;color:#000;}
+.noticeCon>li p:nth-child(2){padding-left: 50px;}
+.noticeCon>li p:nth-child(3){padding-right: 20px;}
+.noticeCon h2::before{content:"";width:7px;height:80%;position:absolute;left:560px;top:8px;background-color:#ffffff;}
+.noticeCon h2::after{content:"";width:7px;height:80%;position:absolute;left:750px;top:8px;background-color:#f0f0f0;}
+.noticeCon i{font-size:500px;color:rgba(255,255,255,0.308);position:absolute;top:-150px;left:475px;z-index:1;pointer-events:none;}
+.page{color:white;font-size:25px;}
+.page ul{display:flex;gap:50px;justify-content:center;}
 .page span{cursor:pointer;}
 
 /* ========== Shop 섹션 ========== */
@@ -151,16 +150,38 @@ video{width:100%;border-radius:20px;}
 .nolog{position:absolute;width:100px;height:35px;line-height:35px;text-align:center;border-radius:5px;background-color:rgb(0,127,211);color:white;font-weight:bold;cursor:pointer;display:block;transition:.2s;right:20px;bottom:-70px;}
 .nolog:hover{background-color:rgb(23,162,255);}
 dialog{margin:2% auto;display:block;width:90%;height:90%;}
-.modal{display:none;position:fixed;top:0;width:100vw;height:100vh;background-color:rgba(0,0,0,0.644);z-index:1000;}
-.m_header{height:15%;}
+.modal{position:fixed;top:0;width:100vw;height:100vh;background-color:rgba(0,0,0,0.644);z-index:1000;}
+.m_header{height:15%; position: relative; font-weight: bold; font-size: 30px;}
+.m_header > .flex:nth-child(1){position: absolute; font-weight: 500; font-size: 23px; left: 6%; top: 80%;}
+.m_header p{color: rgb(150, 150, 150);}
+.m_header p:hover{cursor: pointer; font-weight: bold; color: black;}
+.m_header > .flex:nth-child(1) p:nth-child(1){font-weight: bold; color: black;}
+.m_header > .flex:nth-child(1) p:not(:nth-child(1)){margin-left: 60px;}
+.m_header > .flex:nth-child(2){ position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.m_header > .flex:nth-child(2) > p:nth-child(1){color: rgb(88, 88, 88);}
+.m_header .modalClose{color: rgb(139, 139, 139); position: absolute; top: 20px; right: 50px; cursor: pointer;}
+.m_header .modalClose:hover{color: red;}
+
 .m_body{display:flex;height:70%;}
-.m_body .display{width:45%;padding:2.5%;height:100%;overflow:scroll;}
+.m_body .display{width: 50%; overflow: hidden; padding: 5px; position: relative;}
+.m_body .display h2{position: absolute; left: 50%; top: 10%; transform: translate(-50%, -50%);}
+.m_body .flex{display: flex; justify-content: space-around;}
+.m_body .C_card{background-color:rgb(236, 236, 236); width: 250px; height: 150px; display: flex; align-items: center;}
+.m_body .C_card img{width: 100px; height: 130px; object-fit: cover;}
+.m_body .C_card .box{margin-left: 5px; width: 100%;}
+.m_body .C_card .box .itemTitle{width: 55%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.m_body .C_item > div:not(:nth-child(1)){display: none;}
+.m_body > .C_item > div .flex{width: 100%; height: 100%; justify-content: space-around;}
 .m_body .card{width:100%;}
-.m_body .item{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;}
 .m_body .order{width:50%;height:100%;background-color:rgb(240,240,240);}
+
+.m_footer{display: flex; justify-content: space-around; align-items: center; margin-top: 50px; font-size: 30px; font-weight: bold;}
+.m_footer .orderYes{font-weight: normal; padding: 10px; transition: .2s; cursor: pointer;}
+.m_footer .orderYes:hover{font-weight: bold; background-color: rgba(0, 0, 0, 0.219); border-radius: 10px;}
+
 .order{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;overflow:scroll;}
 .order .card{width:100%;}
-.line{display:none;font-size:24px;font-weight:bold;color:white;background-color:rgba(0,0,0,0.459);width:100vw;height:100px;position:fixed;top:40%;z-index:101;}
+.line{display:none; font-size:24px; font-weight:bold; color:white; background-color:rgba(0,0,0,0.459); width:100vw;height:100px;position:fixed;top:40%;z-index:101;}
 
 /* ========== Hot / All Section Backgrounds ========== */
 .hot{position:relative;padding-bottom:200px;}
