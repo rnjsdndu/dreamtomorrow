@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./선수제공파일/공통/fontawesome/css/font-awesome.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./선수제공파일/공통/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -62,13 +62,14 @@
               </li>
               <li id="re"><label for="repeat">
                   <p class="fa fa-repeat"></p>반복
-                </label><input type="checkbox" name="repeat" id="repeat"></li>
+                </label></li>
               <li id="auto"><label for="auto">
                   <p class="fa fa-play-circle"></p>자동재생
-                </label><input type="checkbox" name="auto" id="auto"></li>
+                  <input type="checkbox" id="auto" name="auto">
+                </label></li>
               <li><label id="hidden" for="hide">
                   <p class="fa fa-cogs"></p>컨트롤러
-                </label><input type="checkbox" name="hide" id="hide"></li>
+                </label></li>
             </ul>
           </div>
         </div>
@@ -337,11 +338,11 @@
     <dialog>
       <div class="m_header">
         <div class="flex">
-          <p onclick="helth()">건강식품</p>
-          <p onclick="digital()">디지털</p>
-          <p onclick="fancy()">팬시</p>
-          <p onclick="perfum()">향수</p>
-          <p onclick="hair()">헤어케어</p>
+          <p class="helthTxt" onclick="helth()">건강식품</p>
+          <p class="digitalTxt" onclick="digital()">디지털</p>
+          <p class="fancyTxt" onclick="fancy()">팬시</p>
+          <p class="perfumTxt" onclick="perfum()">향수</p>
+          <p class="hairTxt" onclick="hair()">헤어케어</p>
         </div>
         <div class="flex">
           <p>비회원ID:</p>

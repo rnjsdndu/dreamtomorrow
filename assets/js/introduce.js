@@ -28,7 +28,7 @@ const mottos = $$(".gallery > div");
 mottos.forEach((e) => { 
   e.addEventListener("mouseover", () => { 
     mottos.forEach((e2) => { 
-      e2.style.backgroundImage = `url(./assets/images/${e.className}.png)`;
+      e2.style.backgroundImage = `url(./assets/images/${e.className}.jpg)`;
       $(`.des${e.className.replace(/[^0-9]/g, "")}`).style.opacity = "1";
       $(`.title${e.className.replace(/[^0-9]/g, "")}`).style.opacity = "1";
       if (e !== e2) {
@@ -39,7 +39,7 @@ mottos.forEach((e) => {
 
   e.addEventListener("mouseleave", () => { 
     mottos.forEach((e2) => { 
-      e2.style.backgroundImage = `url(./assets/images/${e2.className}.png)`;
+      e2.style.backgroundImage = `url(./assets/images/${e2.className}.jpg)`;
       $(`.title${e2.className.replace(/[^0-9]/g, "")}`).style.opacity = "1";
       $(`.des${e2.className.replace(/[^0-9]/g, "")}`).style.opacity = "0";
     });
