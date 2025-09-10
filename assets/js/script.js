@@ -1,24 +1,23 @@
-const $ = e => document.querySelector(e)
-const $$ = e => [...document.querySelectorAll(e)]
+const $ = e => document.querySelector(e);
+const $$ = e => [...document.querySelectorAll(e)];
 
+// ================== 모토/마우스 오버 ==================
 function motto() {
-  const mottos = [...document.querySelectorAll(".motto ul li")];
-  const dess = [...document.querySelectorAll(".dess div")];
+  const mottos = $$('.motto ul li');
+  const dess = $$('.dess div');
 
   mottos.forEach((motto, index) => {
-    motto.addEventListener("mouseover", (e1) => {
-      dess[index].style.display = "block";
-      e1.currentTarget.querySelector('p').style.display = "block";
+    motto.addEventListener('mouseover', () => {
+      dess[index].style.display = 'block';
+      motto.querySelector('p').style.display = 'block';
 
       const currentBgImage = `url(./assets/images/${motto.classList[0]}.png)`;
-      mottos.forEach(item => {
-        item.style.backgroundImage = currentBgImage;
-      });
+      mottos.forEach(item => item.style.backgroundImage = currentBgImage);
     });
 
-    motto.addEventListener("mouseleave", (e1) => {
-      dess[index].style.display = "none";
-      e1.currentTarget.querySelector('p').style.display = "none";
+    motto.addEventListener('mouseleave', () => {
+      dess[index].style.display = 'none';
+      motto.querySelector('p').style.display = 'none';
 
       mottos.forEach(item => {
         item.style.backgroundImage = `url(./assets/images/${item.classList[0]}.png)`;
@@ -27,9 +26,10 @@ function motto() {
   });
 }
 
+// ================== 비디오 컨트롤 ==================
 function video() {
-  const video = document.querySelector("video");
-  const controlor = document.querySelector('.other');
+  const video = $('video');
+  const controlor = $('.other');
 
   const videoAction = {
     play: () => video.play(),
@@ -37,278 +37,188 @@ function video() {
     stop: () => { video.pause(); video.currentTime = 0 },
     back: () => video.currentTime -= 10,
     fast: () => video.currentTime += 10,
-    speedDown: () => video.playbackRate -= .1,
-    speedUp: () => video.playbackRate += .1,
+    speedDown: () => video.playbackRate -= 0.1,
+    speedUp: () => video.playbackRate += 0.1,
     reset: () => video.playbackRate = 1,
     re: () => video.loop = !video.loop,
     hidden: () => {
-      const hide = document.querySelector('#hide');
-      if (hide.checked === true) {
-        controlor.style.display = 'flex';
-      } else {
-        controlor.style.display = 'none';
-      }
+      const hide = $('#hide');
+      controlor.style.display = hide && hide.checked ? 'flex' : 'none';
     }
   };
 
   for (const i in videoAction) {
-    document.getElementById(i).addEventListener("click", videoAction[i]);
+    const btn = $(`#${i}`);
+    if(btn) btn.addEventListener('click', videoAction[i]);
   }
 }
 
-
-
-
-
+// ================== 장바구니 드래그&드롭 ==================
 let draggEle = null;
-let total = null
-let guestId = '';
-let randomId = null
+let total = 0;
+const order = $('.order');
+const display = $('.display');
 
-const modalOpen = document.querySelector('.nolog')
-const modal = document.querySelector('.modal')
-const modalClose = document.querySelector('.modalClose')
+function getPrice(priceText) {
+  return parseInt(priceText.replace(/[,원]/g, '')) || 0;
+}
 
 function totalPrice() {
   total = 0;
-  document.querySelectorAll('.order .card').forEach(card => {
-    const priceText = card.querySelector('.price').textContent.replace(/,/g, '')
-    const price = parseInt(priceText)
-    const count = card.querySelector('input').value
+  order.querySelectorAll('.C_card').forEach(card => {
+    const price = getPrice(card.querySelector('.price').textContent);
+    const count = card.querySelector('input')?.value || 1;
     total += price * count;
   });
-  const totalNum = document.querySelector('.modalPrice')
-  totalNum.textContent = total.toLocaleString();
+  const totalNum = $('.modalPrice');
+  if(totalNum) totalNum.textContent = total.toLocaleString();
 }
 
 function dnd() {
-  const cards = document.querySelectorAll('dialog .card');
-  let price = null
+  const cards = display.querySelectorAll('.C_card');
 
   cards.forEach(card => {
     card.draggable = true;
-    card.addEventListener('dragstart', (e) => {
-      e.dataTransfer.setData('text/plain', card.id); // id를 저장
+    card.addEventListener('dragstart', e => {
       draggEle = e.target;
+      e.dataTransfer.setData('text/plain', card.id);
     });
   });
 
-  const order = document.querySelector('.order');
+  order.addEventListener('dragover', e => e.preventDefault());
+  document.body.addEventListener('dragover', e => e.preventDefault());
 
-  order.addEventListener('dragover', (e) => {
+  order.addEventListener('drop', e => {
     e.preventDefault();
-  });
-
-  document.body.addEventListener('dragover', (e) => {
-    e.preventDefault();
-  });
-
-  order.addEventListener('drop', (e) => {
-    e.preventDefault();
-
-    if (!draggEle) return;
-
+    if(!draggEle) return;
     const draggedId = draggEle.id;
-    const alreadyInOrder = order.querySelector(`#${draggedId}`);
-
-    if (alreadyInOrder) return; // 중복 방지
+    if(order.querySelector(`#${draggedId}`)) return;
 
     const clone = draggEle.cloneNode(true);
-    clone.id = draggedId; // id 유지
+    clone.id = draggedId;
 
     const plusMinus = document.createElement('input');
     plusMinus.type = 'number';
     plusMinus.value = 1;
     plusMinus.min = 1;
+    clone.appendChild(plusMinus);
 
     const orderCardPriceTextReal = document.createElement('p');
-
-    clone.appendChild(plusMinus);
     clone.appendChild(orderCardPriceTextReal);
 
     order.appendChild(clone);
 
-    // 원래 display 카드 비활성화
-    const original = document.querySelector(`.display #${draggedId}`);
-    if (original) {
-      original.style.opacity = 0.5;
-      original.setAttribute("draggable", "false");
-    }
+    draggEle.style.opacity = 0.5;
+    draggEle.draggable = false;
 
     function cardPrice() {
-      price = 0;
-      let orderCardPriceText = clone.querySelector('.price').textContent;
-      orderCardPriceText = orderCardPriceText.replace(/,/g, '')
-      const orderCardPrice = parseInt(orderCardPriceText);
-      const cardValue = clone.querySelector('input').value;
-
-      orderCardPriceTextReal.innerHTML = price = (orderCardPrice * cardValue).toLocaleString() + '원';
+      const price = getPrice(clone.querySelector('.price').textContent);
+      const count = plusMinus.value;
+      orderCardPriceTextReal.textContent = (price * count).toLocaleString() + '원';
       orderCardPriceTextReal.style.fontWeight = 'bold';
     }
 
-    plusMinus.addEventListener('input', () => {
-      cardPrice();
-      totalPrice();
-    });
-
-    // 드래그해서 밖으로 나가면 제거
-    clone.addEventListener('dragstart', (e) => {
-      draggEle = clone;
-      e.dataTransfer.setData('text/plain', clone.id);
-    });
+    plusMinus.addEventListener('input', () => { cardPrice(); totalPrice(); });
+    clone.addEventListener('dragstart', e => { draggEle = clone; });
 
     cardPrice();
     totalPrice();
   });
 
-  // 드래그가 body 전체로 나갔을 때 카드 제거
-  document.body.addEventListener("drop", (e) => {
-    const isDropInsideOrder = e.target.closest(".order");
-    if (!isDropInsideOrder && draggEle) {
+  document.body.addEventListener('drop', e => {
+    const isDropInsideOrder = e.target.closest('.order');
+    if(!isDropInsideOrder && draggEle) {
       const removedId = draggEle.id;
-      const removedCard = document.querySelector(`.order #${removedId}`);
-      const original = document.querySelector(`.display #${removedId}`);
-
-      if (removedCard) {
+      const removedCard = order.querySelector(`#${removedId}`);
+      const original = display.querySelector(`#${removedId}`);
+      if(removedCard) {
         removedCard.remove();
-        if (original) {
-          original.style.opacity = 1;
-          original.setAttribute("draggable", "true");
-        }
+        if(original) { original.style.opacity = 1; original.draggable = true; }
         totalPrice();
       }
       draggEle = null;
     }
   });
+}
 
-  function random() {
-    const orderYes = document.querySelector('.orderYes');
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 6; i++) {
-      guestId += chars[Math.floor(Math.random() * chars.length)];
-    }
-    
-    randomId = document.querySelector('.randomId').innerHTML = `${guestId}`
-    
-    orderYes.addEventListener('click', (e) => {
-      const totalNum = document.querySelector('.modalPrice').textContent;
-      const docuMsg = document.querySelector('.line');
-      
-      const msg = document.createElement('span');
-      msg.textContent = `방금 비회원 ${guestId}님이 ${totalNum}원을 결제하셨습니다!`;
-      msg.style.display = 'block';
-      modal.style.display = 'none'
+// ================== 비회원 랜덤 ID & 주문 ==================
+const orderYes = $('.orderYes');
+const modal = $('.modal');
+const docuMsg = $('.line');
+const randomIdEl = $('.randomId');
+let guestId = '';
 
-      
-      docuMsg.innerHTML = '';
-      docuMsg.appendChild(msg);
-      docuMsg.style.display = 'block';
-      
-      setTimeout(() => {
-        docuMsg.style.display = 'none';
-      }, 3000);
+function generateGuestId() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  guestId = '';
+  for (let i = 0; i < 6; i++) guestId += chars[Math.floor(Math.random() * chars.length)];
+  randomIdEl.textContent = guestId;
+}
+
+// 주문 완료 이벤트
+orderYes.addEventListener('click', () => {
+  const totalNum = $('.modalPrice')?.textContent || '0';
+
+  const msg = document.createElement('span');
+  msg.textContent = `방금 비회원 ${guestId}님이 ${totalNum}원을 결제하셨습니다!`;
+  msg.style.display = 'block';
+
+  docuMsg.innerHTML = '';
+  docuMsg.appendChild(msg);
+  docuMsg.style.display = 'block';
+
+  setTimeout(() => { docuMsg.style.display = 'none'; }, 3000);
+
+  modal.style.display = 'none';
+  order.innerHTML = '';
+
+  display.querySelectorAll('.C_card').forEach(card => {
+    card.style.opacity = 1;
+    card.setAttribute('draggable', 'true');
+  });
+
+  totalPrice();
+  generateGuestId();
+});
+
+// 초기 랜덤 ID 생성
+generateGuestId();
+
+// ================== 모달 열기/닫기 ==================
+function modalSetup() {
+  const modal = $('.modal');
+  const modalOpen = $('.nolog');
+  const modalClose = $('.modalClose');
+  if(modalOpen) modalOpen.addEventListener('click', () => modal.style.display = 'block');
+  if(modalClose) modalClose.addEventListener('click', () => modal.style.display = 'none');
+}
+
+// ================== 카테고리 ==================
+function categorySetup() {
+  const cats = ['helth','digital','fancy','perfum','hair'];
+  cats.forEach(cat => {
+    const con = $(`.${cat}`);
+    const txt = $(`.${cat}Txt`);
+    if(!con || !txt) return;
+    txt.addEventListener('click', () => {
+      cats.forEach(c => {
+        const cCon = $(`.${c}`);
+        const cTxt = $(`.${c}Txt`);
+        if(cCon) cCon.style.display = 'none';
+        if(cTxt) { cTxt.style.color = 'rgb(139,139,139)'; cTxt.style.fontWeight = 'normal'; }
+      });
+      con.style.display = 'block';
+      txt.style.color = 'black';
+      txt.style.fontWeight = 'bold';
     });
-  }
-  
-  random();
+  });
 }
 
-modalOpen.addEventListener('click' , (e)=>{
-  modal.style.display = 'block'
-})
-
-modalClose.addEventListener('click' , (e)=>{
-  modal.style.display = 'none'
-})
-
-
-
-const helthCon = $('.helth')
-const digitalCon = $('.digital')
-const fancyCon = $('.fancy')
-const perfumCon = $('.perfum')
-const hairCon = $('.hair')
-
-const helth = (e) =>{
-  helthCon.style.display = 'block'
-  digitalCon.style.display = 'none'
-  fancyCon.style.display = 'none'
-  perfumCon.style.display = 'none'
-  hairCon.style.display = 'none'
-
-  document.querySelectorAll('.menu p').forEach(p => {
-    p.style.fontWeight = 'normal'
-    p.style.color = 'rgb(139, 139, 139)'
-  })
-
-  e.style.fontWeight = 'bold'
-}
-
-const digital = (e) =>{
-  helthCon.style.display = 'none'
-  digitalCon.style.display = 'block'
-  fancyCon.style.display = 'none'
-  perfumCon.style.display = 'none'
-  hairCon.style.display = 'none'
-
-    document.querySelectorAll('.menu p').forEach(p => {
-    p.style.fontWeight = 'normal'
-    p.style.color = 'rgb(139, 139, 139)'
-  })
-
-  e.style.fontWeight = 'bold'
-  
-}
-
-const fancy = (e) =>{
-  helthCon.style.display = 'none'
-  digitalCon.style.display = 'none'
-  fancyCon.style.display = 'block'
-  perfumCon.style.display = 'none'
-  hairCon.style.display = 'none'
-
-    document.querySelectorAll('.menu p').forEach(p => {
-    p.style.fontWeight = 'normal'
-    p.style.color = 'rgb(139, 139, 139)'
-  })
-
-  e.style.fontWeight = 'bold'
-  
-}
-
-const perfum = (e) =>{
-  helthCon.style.display = 'none'
-  digitalCon.style.display = 'none'
-  fancyCon.style.display = 'none'
-  perfumCon.style.display = 'block'
-  hairCon.style.display = 'none'
-
-    document.querySelectorAll('.menu p').forEach(p => {
-    p.style.fontWeight = 'normal'
-    p.style.color = 'rgb(139, 139, 139)'
-  })
-
-  e.style.fontWeight = 'bold'
-  
-}
-
-const hair = (e) =>{
-  helthCon.style.display = 'none'
-  digitalCon.style.display = 'none'
-  fancyCon.style.display = 'none'
-  perfumCon.style.display = 'none'
-  hairCon.style.display = 'block'
-
-    document.querySelectorAll('.menu p').forEach(p => {
-    p.style.fontWeight = 'normal'
-    p.style.color = 'rgb(139, 139, 139)'
-  })
-
-  e.style.fontWeight = 'bold'
-  
-}
-
-
-dnd();
-motto();
-video();
+// ================== 초기화 ==================
+window.addEventListener('DOMContentLoaded', () => {
+  dnd();
+  motto();
+  video();
+  modalSetup();
+  categorySetup();
+});

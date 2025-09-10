@@ -1,6 +1,7 @@
 /* ========== Reset ========== */
 *{margin:0;padding:0;box-sizing:border-box;list-style:none;text-decoration:none;color:inherit;}
 html,body{overflow-x:hidden;}
+/* img{width: 100%; height: 100%; object-fit: cover;} */
 
 /* ========== Layout 기본 ========== */
 #app{width:100vw;height:100%;}
@@ -24,18 +25,22 @@ nav, .util{margin-bottom: 10px;}
 .util a:hover{color:white;}
 
 /* ========== 메인 슬라이드 ========== */
-.slide{position:relative;width:100%;height:819px;overflow:hidden;}
-.slide>ul{display:flex;animation:slide 10s infinite linear;}
+.slide {width: 100%; height: 819px; position: relative;}
+.slide>ul{width: 400%; height: 100%; display: flex; animation:slide 10s infinite linear;}
+.slide li{width: calc(100% / 4);}
+/* .slide{position:relative;width:100%;height:819px;overflow:hidden;}
+.slide>ul{display:flex;animation:slide 10s infinite linear;} */
 .slide::before{content:"";background:repeating-linear-gradient(45deg,transparent 10px,rgba(0,0,0,0.2) 15px),repeating-linear-gradient(-45deg,transparent 10px,rgba(0,0,0,0.2) 15px);top:0;width:100%;height:100%;position:absolute;z-index:10;backdrop-filter:blur(4px);}
-.slide .textSlide{position:absolute;width:750px;top:125px;left:600px;z-index:12;color:white;overflow:hidden;text-align:center;}
+.slide .textSlide{position:absolute;width:750px;top:205px;left:490px;z-index:12;color:white;overflow:hidden;text-align:center;}
 .slide>.textSlide>ul{display:flex;width:400%;flex:1;animation:slide 10s infinite linear;}
-.slide>.textSlide>ul>li{width:100%;}
+.slide>.textSlide>ul>li{width: calc(100% / 4); height: 100%;}
 .slide>.textSlide>ul>li>p:nth-child(1){font-size:110px;font-weight:bold;text-shadow:1px 1px 2px rgba(0,0,0,0.5);}
 .slide>.textSlide>ul>li>p:nth-child(2){font-size:20px;}
-@keyframes slide{0%{margin-left:0;}30%{margin-left:0;}33%{margin-left:-100%;}63%{margin-left:-100%;}66%{margin-left:-200%;}96%{margin-left:-200%;}99%{margin-left:-300%;}99.9999999%{margin-left:-300%;}}
+
+ @keyframes slide{0%{margin-left:0;}30%{margin-left:0;}33%{margin-left:-100%;}63%{margin-left:-100%;}66%{margin-left:-200%;}96%{margin-left:-200%;}99%{margin-left:-300%;}99.9999999%{margin-left:-300%;}}
 
 /* ========== Background 섹션 ========== */
-.background{width:100%;height:500px;position:absolute;bottom:0;left:0;z-index:15;}
+.background{width:100%;height:600px;position:absolute;bottom: -50px;left:0;z-index:90;}
 .background img{width:100%;height:100%;}
 .backgroundTwo{width:100%;height:500px;position:absolute;bottom:0;left:0;}
 .backgroundTwo img{width:100%;height:100%;}
@@ -43,7 +48,7 @@ nav, .util{margin-bottom: 10px;}
 .backgroundThree img{width:100%;height:100%;}
 
 /* ========== Sale 섹션 ========== */
-.sale{width:100%;height:100%;padding-bottom:200px;position:relative;}
+.sale{width:100%;height:100%;padding-bottom:200px;position:relative; padding-top: 200px;}
 .sale h2::before{content:"";width:7px;height:80%;position:absolute;left:560px;top:8px;background-color:#ffc500;}
 .sale h2::after{content:"";width:7px;height:80%;position:absolute;left:750px;top:8px;background-color:#ffc500;}
 .gridBox{padding-top:50px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:90px;font-size:45px;line-height:225px;}
@@ -147,14 +152,14 @@ video{width:100%;border-radius:20px;}
 .other li:hover{background-color:#b3b3b3;}
 
 /* ========== Modal ========== */
-.nolog{position:absolute;width:100px;height:35px;line-height:35px;text-align:center;border-radius:5px;background-color:rgb(0,127,211);color:white;font-weight:bold;cursor:pointer;display:block;transition:.2s;right:20px;bottom:-70px;}
+.nolog{display: block; position:absolute;width:100px;height:35px;line-height:35px;text-align:center;border-radius:5px;background-color:rgb(0,127,211);color:white;font-weight:bold;cursor:pointer;transition:.2s;right:20px;bottom:-70px;}
 .nolog:hover{background-color:rgb(23,162,255);}
 dialog{margin:2% auto;display:block;width:90%;height:90%;}
-.modal{position:fixed;top:0;width:100vw;height:100vh;background-color:rgba(0,0,0,0.644);z-index:1000;}
+.modal{display: none; position:fixed;top:0;width:100vw;height:100vh;background-color:rgba(0,0,0,0.644);z-index:1000;}
 .m_header{height:15%; position: relative; font-weight: bold; font-size: 30px;}
 .m_header > .flex:nth-child(1){position: absolute; font-weight: 500; font-size: 23px; left: 6%; top: 80%;}
-.m_header p{color: rgb(150, 150, 150);}
-.m_header p:hover{cursor: pointer; font-weight: bold; color: black;}
+.m_header .flex:nth-child(1) p{color: rgb(150, 150, 150);}
+.m_header .flex:nth-child(1) p:hover{cursor: pointer; font-weight: bold; color: black;}
 .m_header > .flex:nth-child(1) p:nth-child(1){font-weight: bold; color: black;}
 .m_header > .flex:nth-child(1) p:not(:nth-child(1)){margin-left: 60px;}
 .m_header > .flex:nth-child(2){ position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
@@ -179,13 +184,14 @@ dialog{margin:2% auto;display:block;width:90%;height:90%;}
 .m_footer .orderYes{font-weight: normal; padding: 10px; transition: .2s; cursor: pointer;}
 .m_footer .orderYes:hover{font-weight: bold; background-color: rgba(0, 0, 0, 0.219); border-radius: 10px;}
 
-.order{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;overflow:scroll;}
-.order .card{width:100%;}
+.order{display:grid;grid-template-columns:1fr 1fr 1fr;overflow:scroll;}
+.order .C_card{width:100%;}
 .line{display:none; font-size:24px; font-weight:bold; color:white; background-color:rgba(0,0,0,0.459); width:100vw;height:100px;position:fixed;top:40%;z-index:101;}
 
 /* ========== Hot / All Section Backgrounds ========== */
 .hot{position:relative;padding-bottom:200px;}
 .hot>img{position:absolute;left:0;bottom:0;width:100%;height:300px;z-index:10;}
+.hot h1,.all h1{padding: 30px 0;}
 .all{position:relative;padding-bottom:400px;}
 .all>img{position:absolute;bottom:0;left:0;width:100%;height:300px;}
 .all .container{position:relative;}
@@ -204,3 +210,5 @@ footer .sns{font-size:30px;}
 .sns>p:nth-child(4):hover{color:black;cursor:pointer;}
 .sns>p:nth-child(5):hover{color:green;cursor:pointer;}
 
+
+.desBox div{text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.373);}
